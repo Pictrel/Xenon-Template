@@ -1,1 +1,2 @@
-.incbin "tileset.chr"
+tileset_bin:
+	.incbin "tileset.chr"

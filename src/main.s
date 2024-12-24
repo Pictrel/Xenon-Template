@@ -10,7 +10,10 @@ main:
 
 
 copy_tileset:
-	
+	store16 tileset_bin,  z_src
+	store16 VRAM_TILESET, z_dest
+	lda #$04
+	jsr $F800
 	rts
 
 .include "graphics.s"
