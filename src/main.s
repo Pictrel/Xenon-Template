@@ -3,18 +3,17 @@
 .include "xenon_def.s"
 
 main:
-	jsr copy_tileset
-	
+	; print a message to the console
+	ldx #$00
+
 @loop:
-	jmp @loop
+	lda msg, x
+	sta IO_CON
 
+@halt:
+	jmp @halt
 
-copy_tileset:
-	store16 tileset_bin,  z_src
-	store16 VRAM_TILESET, z_dest
-	lda #$04
-	jsr $F800
-	rts
+msg: .byte "Hello, World!\0"
 
 .include "graphics.s"
 

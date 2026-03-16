@@ -1,16 +1,11 @@
-
 # Toolchain
 CA65     := ca65
 LD65     := ld65
-BUILDXEN := buildxen
 BXCONFIG := conf/buildxen.cfg
 LDSCRIPT := conf/xenon_disc.ld
 INCLUDE  := include
-HEADERS  := /usr/local/include/xenon/
 
-# if you don't want to install xenon change:
-# HEADERS  := <xenon source dir>/bios/
-# BUILXEN  := <xenon source dir>/buildxen
+include ./config.mk
 
 NAME     := game
 TARGET   := $(NAME).xen
