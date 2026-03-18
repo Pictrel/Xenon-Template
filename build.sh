@@ -20,7 +20,7 @@ function Build {
         binary_name=$(basename $binary_path)
 
         if [ ! -e $binary_path/MAIN.s ]; then
-            echo -e "\e[41;37m ERROR \e[0m $binary_name must have a MAIN.s file!"
+            echo -e "ERROR: $binary_name must have a MAIN.s file!"
             exit 1
         fi
 
@@ -36,11 +36,12 @@ function Build {
         fi
     done
 
-    $BUILDXEN -o game.xen conf/buildxen.cfg
+    echo "building disk"
+    $BUILDXEN -o build/game.xen conf/buildxen.cfg
 }
 
 function Clean {
-    rm build/*.{o,bin}
+    rm build/*.{o,bin,xen}
 }
 
 if   [ -z $1 ];       then Build;
